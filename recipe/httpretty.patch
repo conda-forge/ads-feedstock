@@ -1,0 +1,8 @@
+--- requirements.txt.orig	2017-04-18 08:47:15.876571289 -0400
++++ requirements.txt	2017-04-18 08:47:19.785593302 -0400
+@@ -1,5 +1,4 @@
+ six
+ requests
+-httpretty==0.8.10
+ werkzeug
+ mock
