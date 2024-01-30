@@ -11,7 +11,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - httpretty.patch
+    - test-workaround.patch
 
 build:
   noarch: python
@@ -33,6 +33,13 @@ requirements:
 test:
   imports:
     - ads
+  commands:
+    - pip check
+    - pytest --pyargs ads
+  requires:
+    - pip
+    - pytest
+    - httpretty
 
 about:
   home: http://github.com/andycasey/ads
