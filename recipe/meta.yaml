@@ -1,6 +1,6 @@
 {% set name = "ads" %}
-{% set version = "0.12.3" %}
-{% set sha256 = "ce523f266f6b815bf1d6371b6e7791b4d10989ebe743681b27bd54301f7cdcc9" %}
+{% set version = "0.12.4" %}
+{% set sha256 = "66d4d3c4742db7d710ca66e508b220fe2e836d4af0ad25a6c0fff1ca8c08ed50" %}
 
 package:
   name: {{ name|lower }}
@@ -11,20 +11,20 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - httpretty.patch
+    - test-workaround.patch
 
 build:
   noarch: python
-  number: 2
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     - setuptools
   run:
-    - python
+    - python >=3.6
     - werkzeug
     - mock
     - requests
@@ -33,15 +33,23 @@ requirements:
 test:
   imports:
     - ads
+  commands:
+    - pip check
+    - pytest --pyargs ads
+  requires:
+    - pip
+    - pytest
+    - httpretty
 
 about:
   home: http://github.com/andycasey/ads
   license: MIT
   license_family: MIT
+  license_file: LICENSE
   summary: 'A Python interface to NASA ADS.'
 
   description: |
-     ads implements a Python interface to NASA ADS's API.
+    ads implements a Python interface to NASA ADS's API.
   doc_url: http://ads.readthedocs.io/
   dev_url: https://github.com/andycasey/ads
 
