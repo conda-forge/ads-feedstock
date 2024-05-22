@@ -1,6 +1,6 @@
 {% set name = "ads" %}
-{% set version = "0.12.4" %}
-{% set sha256 = "66d4d3c4742db7d710ca66e508b220fe2e836d4af0ad25a6c0fff1ca8c08ed50" %}
+{% set version = "0.12.6" %}
+{% set sha256 = "b4caeb5df31b735973afdb7d8c471d93020b620d2058f4a94be97358f5fa51a1" %}
 
 package:
   name: {{ name|lower }}
