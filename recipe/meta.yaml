@@ -1,6 +1,6 @@
 {% set name = "ads" %}
-{% set version = "0.12.6" %}
-{% set sha256 = "b4caeb5df31b735973afdb7d8c471d93020b620d2058f4a94be97358f5fa51a1" %}
+{% set version = "0.12.7" %}
+{% set sha256 = "c02687302576c33944a91654a39156ef6d7f6093b26b9ecd49e7540bee1fde94" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
