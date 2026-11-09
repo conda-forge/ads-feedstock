@@ -1,6 +1,6 @@
 {% set name = "ads" %}
-{% set version = "0.12.7" %}
-{% set sha256 = "c02687302576c33944a91654a39156ef6d7f6093b26b9ecd49e7540bee1fde94" %}
+{% set version = "0.13.0" %}
+{% set sha256 = "28b86893f736510493a49051de8eff7543140f34eb0934c62375113ddf84eba4" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
     - test-workaround.patch
